@@ -1,0 +1,11 @@
+#------------------------
+# EXT_microhttpd
+#------------------------
+
+This object allow to use GNU libmicrohttpd inside projects build with quicky_tools
+
+# Reference
+#-----------
+GNU website of libmicrohttpd : https://www.gnu.org/software/libmicrohttpd/
+
+#EOF
