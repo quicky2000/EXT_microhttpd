@@ -8,6 +8,10 @@ By default
 EXT_MICROHTTPD_INC_DIR=/usr/include
 EXT_MICROHTTPD_LIB_DIR=/usr/lib/x86_64-linux-gnu/
 
+# Debian based installation
+#---------------------------
+sudo apt-get install libmicrohttpd-dev
+
 # Reference
 #-----------
 GNU website of libmicrohttpd : https://www.gnu.org/software/libmicrohttpd/
