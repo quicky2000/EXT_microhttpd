@@ -21,7 +21,12 @@
 #include <cstring>
 #include <microhttpd.h>
 
-int print_out_key (void *cls, enum MHD_ValueKind kind, const char *key,const char *value)
+#if MHD_VERSION >= 0x00097002
+static enum MHD_Result
+#else  // MHD_VERSION >= 0x00097002
+int
+#endif // MHD_VERSION >= 0x00097002
+print_out_key (void *cls, enum MHD_ValueKind kind, const char *key,const char *value)
 {
     (void)cls;
     (void)kind;
@@ -29,7 +34,12 @@ int print_out_key (void *cls, enum MHD_ValueKind kind, const char *key,const cha
   return MHD_YES;
 }
 
-int ahc_echo (void *p_callback_data,
+#if MHD_VERSION >= 0x00097002
+static enum MHD_Result
+#else  // MHD_VERSION >= 0x00097002
+int
+#endif // MHD_VERSION >= 0x00097002
+ahc_echo (void *p_callback_data,
           struct MHD_Connection *connection,
           const char *url,
           const char *method,
@@ -42,7 +52,11 @@ int ahc_echo (void *p_callback_data,
   static int aptr;
   const char *p_content_page = (char*)p_callback_data;
   struct MHD_Response *response;
-  int ret;
+#if MHD_VERSION >= 0x00097002
+    static enum MHD_Result ret;
+#else  // MHD_VERSION >= 0x00097002
+    int ret;
+#endif // MHD_VERSION >= 0x00097002
 
   std::cout << "Method = \"" << method << "\"" <<std::endl ;
   std::cout << "URL = \"" << url << "\"" <<std::endl ;
