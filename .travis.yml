@@ -1,14 +1,20 @@
-sudo: required
-dist: trusty
-language: cpp
-compiler:
-  - gcc
-#  - clang
+matrix:
+  include:
+    - os: linux
+      sudo: required
+      dist: trusty
+      compiler: gcc
+    - os: osx
 
+language: cpp
 
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install libmicrohttpd-dev
+# Microhttpd specific part
+#-----------------------
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; brew install libmicrohttpd; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; sudo apt-get install -y libmicrohttpd-dev; fi
+# End of Microhttpd specific part
+#-----------------------
   - MY_LOCATION=`pwd`
   - mkdir ../repositories
   - cd ..
@@ -30,7 +36,6 @@ before_install:
   - cd build
 
 script:
-  - generate_makefile EXT_microhttpd
-  - make test
-  - ./bin/EXT_microhttpd.exe
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then generate_makefile EXT_microhttpd; make test; ./bin/EXT_microhttpd.exe; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cmake $QUICKY_REPOSITORY/EXT_microhttpd; make; ./test_EXT_microhttpd; fi
 #EOF
