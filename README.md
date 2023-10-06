@@ -16,6 +16,9 @@ EXT_MICROHTTPD_LIB_DIR=/usr/lib/x86_64-linux-gnu/
 ## Debian based installation
 `sudo apt-get install libmicrohttpd-dev`
 
+## OpenSuse TUmbleweed installation
+`sudo zypper install libmicrohttpd-devel`
+
 ## Reference
 GNU website of libmicrohttpd : https://www.gnu.org/software/libmicrohttpd/
 
