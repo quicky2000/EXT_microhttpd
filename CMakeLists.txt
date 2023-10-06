@@ -33,7 +33,7 @@ if(NOT IS_DIRECTORY ${HAS_PARENT})
     #set(CMAKE_VERBOSE_MAKEFILE ON)
     add_executable(test_${PROJECT_NAME} ${MY_SOURCE_FILES} ${DEPENDANCY_OBJECTS} src/main_${PROJECT_NAME}.cpp)
     target_compile_definitions(test_${PROJECT_NAME} PRIVATE -D$<UPPER_CASE:${PROJECT_NAME}>_SELF_TEST)
-    target_compile_options(test_${PROJECT_NAME} PUBLIC -Wall -ansi -pedantic -g -O3)
+    target_compile_options(test_${PROJECT_NAME} PUBLIC -Wall -pedantic -g -O3)
     target_link_libraries(test_${PROJECT_NAME} ${PROJECT_NAME})
 endif()
 
