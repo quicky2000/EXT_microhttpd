@@ -1,6 +1,6 @@
 # EXT_microhttpd
 
-Continuous integration with [Travis-Ci](https://travis-ci.org/quicky2000/EXT_microhttpd) : ![Build Status](https://travis-ci.org/quicky2000/EXT_microhttpd.svg?branch=master)
+Continuous integration with [Travis-Ci](https://travis-ci.com/quicky2000/EXT_microhttpd) : ![Build Status](https://travis-ci.com/quicky2000/EXT_microhttpd.svg?branch=master)
 
 Some utilities to deal with BMP files
 
