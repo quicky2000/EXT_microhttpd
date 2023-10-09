@@ -4,8 +4,8 @@
 
 This object allow to use GNU libmicrohttpd inside projects build with quicky_tools
 
-Continuous integration with Travis-Ci: https://travis-ci.com/quicky2000/EXT_microhttpd
-Build Status : https://travis-ci.com/quicky2000/EXT_microhttpd.svg?branch=master
+Continuous integration with Travis-Ci: https://app.travis-ci.com/github/quicky2000/EXT_microhttpd
+Build Status : https://app.travis-ci.com/quicky2000/EXT_microhttpd.svg?branch=master
 
 By default 
 EXT_MICROHTTPD_INC_DIR=/usr/include
