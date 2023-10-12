@@ -15,9 +15,9 @@ matrix:
       dist: bionic
       compiler: gcc
       env: DISTRIB_NAME=bionic
-#    - os: osx
-#      osx_image: xcode12.4
-#      env: DISTRIB_NAME=macos
+    - os: osx
+      osx_image: xcode14.2
+      env: DISTRIB_NAME=macos
 
 language: cpp
 
