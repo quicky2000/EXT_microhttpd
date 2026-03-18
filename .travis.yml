@@ -15,17 +15,13 @@ matrix:
       dist: bionic
       compiler: gcc
       env: DISTRIB_NAME=bionic
-    - os: osx
-      osx_image: xcode14.2
-      env: DISTRIB_NAME=macos
 
 language: cpp
 
 before_install:
 # Microhttpd specific part
 #-----------------------
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; brew install libmicrohttpd; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; sudo apt-get install -y libmicrohttpd-dev; fi
+  - sudo apt-get update; sudo apt-get install -y libmicrohttpd-dev
 # End of Microhttpd specific part
 #-----------------------
   - MY_LOCATION=`pwd`
@@ -49,6 +45,7 @@ before_install:
   - cd build
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then generate_makefile EXT_microhttpd; make test; ./bin/EXT_microhttpd.exe; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cmake $QUICKY_REPOSITORY/EXT_microhttpd; make; ./test_EXT_microhttpd; fi
+  - generate_makefile EXT_microhttpd
+  - make test
+  - ./bin/EXT_microhttpd.exe
 #EOF
